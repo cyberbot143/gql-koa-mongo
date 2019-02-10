@@ -7,18 +7,17 @@ var error = chalk.bold.yellow;
 var disconnected = chalk.bold.red;
 var termination = chalk.bold.magenta;
 
-const dbUri =
-  "mongodb://cyberbot143:cyberbot143@ds129045.mlab.com:29045/gadgets";
-
 const initDB = () => {
-  mongoose.connect(dbUri, { useNewUrlParser: true });
+  mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true });
 
   mongoose.connection.once("open", () => {
     console.log("connected to database....");
   });
 
   mongoose.connection.on("connected", () => {
-    console.log(connected("Mongoose default connection", dbUri));
+    console.log(
+      connected("Mongoose default connection", process.env.MONGODB_URI)
+    );
   });
 
   // If the connection throws an error

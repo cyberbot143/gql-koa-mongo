@@ -1,9 +1,9 @@
 import Koa from "koa";
 import mount from "koa-mount";
 import graphqlHTTP from "koa-graphql";
-
 import schema from "../graphQl/schema";
 import initDB from "../config/dbConnect";
+require("dotenv").config();
 
 initDB();
 
