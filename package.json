@@ -1,11 +1,14 @@
 {
   "name": "gqlkoa",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "src/server.js",
   "license": "MIT",
   "scripts": {
-    "start": "pm2-runtime start ecosystem.config.js",
-    "dev": "nodemon --exec babel-node server.js ",
+    "start": "npm run build && pm2-runtime start ecosystem.config.js",
+    "clean": "rm -rf build && mkdir build",
+    "build-babel": "babel -d ./build ./src -s",
+    "build": "npm run clean && npm run build-babel",
+    "dev": "nodemon --exec babel-node src/server.js ",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {

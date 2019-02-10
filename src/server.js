@@ -1,10 +1,9 @@
 import Koa from "koa";
 import mount from "koa-mount";
-
 import graphqlHTTP from "koa-graphql";
 
-import schema from "./graphql/schema";
-import initDB from "./config/dbConnect";
+import schema from "../graphQl/schema";
+import initDB from "../config/dbConnect";
 
 initDB();
 
